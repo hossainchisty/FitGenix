@@ -1,4 +1,4 @@
-# fitgenix
+# FitGenix
 
 Multi-tenant fitness business SaaS. Django + DRF API (`backend/`), Next.js 14 app (`frontend/`).
 One gym = one tenant = one subdomain (`hulkzone.fitgenix.com`). Shared database, `tenant_id` on every gym table.
