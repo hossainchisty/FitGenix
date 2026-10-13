@@ -11,7 +11,7 @@ const RAW_RUNTIME_STATE =
   ],\
   "dependencyTreeRoots": [\
     {\
-      "name": "fitssort-web",\
+      "name": "fitgenix-web",\
       "reference": "workspace:."\
     }\
   ],\
@@ -19,7 +19,7 @@ const RAW_RUNTIME_STATE =
   "ignorePatternData": "(^(?:\\\\.yarn\\\\/sdks(?:\\\\/(?!\\\\.{1,2}(?:\\\\/|$))(?:(?:(?!(?:^|\\\\/)\\\\.{1,2}(?:\\\\/|$)).)*?)|$))$)",\
   "pnpZipBackend": "libzip",\
   "fallbackExclusionList": [\
-    ["fitssort-web", ["workspace:."]]\
+    ["fitgenix-web", ["workspace:."]]\
   ],\
   "fallbackPool": [\
   ],\
@@ -31,7 +31,7 @@ const RAW_RUNTIME_STATE =
           ["@types/node", "npm:20.14.0"],\
           ["@types/react", "npm:18.3.3"],\
           ["@types/react-dom", "npm:18.3.0"],\
-          ["fitssort-web", "workspace:."],\
+          ["fitgenix-web", "workspace:."],\
           ["next", "virtual:8e9652fe0db1fb60fdfb198f48534786035acdddac109007c2606ffb59edfb6d37f8e841022bae1c8fee3fe3f5eeacf193c495f9e913dced7b8943d6c2285f29#npm:14.2.15"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:8e9652fe0db1fb60fdfb198f48534786035acdddac109007c2606ffb59edfb6d37f8e841022bae1c8fee3fe3f5eeacf193c495f9e913dced7b8943d6c2285f29#npm:18.3.1"],\
@@ -235,14 +235,14 @@ const RAW_RUNTIME_STATE =
         "linkType": "HARD"\
       }]\
     ]],\
-    ["fitssort-web", [\
+    ["fitgenix-web", [\
       ["workspace:.", {\
         "packageLocation": "./",\
         "packageDependencies": [\
           ["@types/node", "npm:20.14.0"],\
           ["@types/react", "npm:18.3.3"],\
           ["@types/react-dom", "npm:18.3.0"],\
-          ["fitssort-web", "workspace:."],\
+          ["fitgenix-web", "workspace:."],\
           ["next", "virtual:8e9652fe0db1fb60fdfb198f48534786035acdddac109007c2606ffb59edfb6d37f8e841022bae1c8fee3fe3f5eeacf193c495f9e913dced7b8943d6c2285f29#npm:14.2.15"],\
           ["react", "npm:18.3.1"],\
           ["react-dom", "virtual:8e9652fe0db1fb60fdfb198f48534786035acdddac109007c2606ffb59edfb6d37f8e841022bae1c8fee3fe3f5eeacf193c495f9e913dced7b8943d6c2285f29#npm:18.3.1"],\

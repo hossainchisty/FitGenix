@@ -166,9 +166,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fitssort-web@workspace:.":
+"fitgenix-web@workspace:.":
   version: 0.0.0-use.local
-  resolution: "fitssort-web@workspace:."
+  resolution: "fitgenix-web@workspace:."
   dependencies:
     "@types/node": "npm:20.14.0"
     "@types/react": "npm:18.3.3"

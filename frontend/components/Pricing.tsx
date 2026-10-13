@@ -1,12 +1,12 @@
 "use client";
+import { api } from "@/lib/api";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { api } from "@/lib/api";
 export type PlanT = { code: string; name: string; trial_days: number; price_month: string | null; price_year: string | null };
 export const tk = (n: string | number) => "Tk." + Number(n).toLocaleString("en-US");
 export function usePlans() {
   const [plans, setPlans] = useState<PlanT[]>([]);
-  useEffect(() => { api<PlanT[]>("/public/plans", { auth: false }).then(setPlans).catch(() => {}); }, []);
+  useEffect(() => { api<PlanT[]>("/public/plans", { auth: false }).then(setPlans).catch(() => { }); }, []);
   return plans;
 }
 export function IntervalToggle({ value, onChange }: { value: string; onChange: (v: "month" | "year") => void }) {
@@ -23,7 +23,7 @@ export default function Pricing() {
     <div key={p.code} className={`card plan ${p.code === "starter" ? "hi" : ""}`}>
       {p.trial_days ? <span className="badge">{p.trial_days}-day trial</span> : <span className="hint">{p.code === "enterprise" ? "Talk to us" : "No trial"}</span>}
       <h3>{p.name}</h3><Price p={p} interval={iv} />
-      {p.code === "enterprise" ? <a href="mailto:hello@fitssort.com"><button className="btn-forest" type="button">Contact sales</button></a>
+      {p.code === "enterprise" ? <a href="mailto:hello@fitgenix.com"><button className="btn-forest" type="button">Contact sales</button></a>
         : <Link href={`/signup?plan=${p.code}&interval=${iv}`}><button className={p.code === "starter" ? "btn-lime" : "btn-forest"} type="button">{p.trial_days ? "Start free trial" : `Choose ${p.name}`}</button></Link>}
     </div>))}</div></>;
 }

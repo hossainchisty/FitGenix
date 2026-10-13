@@ -1,7 +1,7 @@
-# Fitssort
+# fitgenix
 
 Multi-tenant fitness business SaaS. Django + DRF API (`backend/`), Next.js 14 app (`frontend/`).
-One gym = one tenant = one subdomain (`hulkzone.fitssort.com`). Shared database, `tenant_id` on every gym table.
+One gym = one tenant = one subdomain (`hulkzone.fitgenix.com`). Shared database, `tenant_id` on every gym table.
 
 ## Run it locally (sqlite, 2 minutes)
 
@@ -25,28 +25,28 @@ Open `http://hulkzone.localhost:3000/login` (Chrome resolves `*.localhost`), or 
 
 ## Moving to Postgres (your "migrate later")
 
-Set `DATABASE_URL=postgres://user:pass@host:5432/fitssort`, then `python manage.py migrate && python manage.py seed`.
+Set `DATABASE_URL=postgres://user:pass@host:5432/fitgenix`, then `python manage.py migrate && python manage.py seed`.
 Migrations are already generated and committed (`apps/*/migrations`). `docker-compose up db backend` gives you Postgres + API.
 
 ## Production domain
 
-Backend: `BASE_DOMAIN=fitssort.com`, `DJANGO_ALLOWED_HOSTS`, `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=0`.
-Frontend: `NEXT_PUBLIC_BASE_DOMAIN=fitssort.com`, `BACKEND_URL=https://api...`.
-DNS `*.fitssort.com` + wildcard TLS (Cloudflare). The app derives the tenant from the hostname and sends it as `X-Tenant`;
+Backend: `BASE_DOMAIN=fitgenix.com`, `DJANGO_ALLOWED_HOSTS`, `DJANGO_SECRET_KEY`, `DJANGO_DEBUG=0`.
+Frontend: `NEXT_PUBLIC_BASE_DOMAIN=fitgenix.com`, `BACKEND_URL=https://api...`.
+DNS `*.fitgenix.com` + wildcard TLS (Cloudflare). The app derives the tenant from the hostname and sends it as `X-Tenant`;
 the API re-checks it against the token and the user's membership, so the header alone grants nothing.
 
 ## How the pieces map to the design doc
 
-| Concern | Where |
-|---|---|
-| Tenant resolution | `backend/apps/core/middleware.py` |
-| Tenant-scoped ORM, fails closed | `backend/apps/core/tenancy.py` (`objects` = scoped, `unscoped` = platform only) |
-| Plans, trial, add-ons, hide toggles | `backend/apps/billing/` (`effective_features = (plan + grant) - hide`) |
-| API-enforced feature gates + roles + read-only on expiry | `backend/apps/core/permissions.py` |
-| `/auth/me` with `enabled_features` | `backend/apps/core/views.py` |
-| Dashboard aggregates | `DashboardView` in `apps/core/views.py` |
-| Nav registry filtered by features/role | `frontend/app/(app)/layout.tsx` |
-| Generic CRUD screens | `frontend/components/ResourcePage.tsx` |
+| Concern                                                  | Where                                                                           |
+| -------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| Tenant resolution                                        | `backend/apps/core/middleware.py`                                               |
+| Tenant-scoped ORM, fails closed                          | `backend/apps/core/tenancy.py` (`objects` = scoped, `unscoped` = platform only) |
+| Plans, trial, add-ons, hide toggles                      | `backend/apps/billing/` (`effective_features = (plan + grant) - hide`)          |
+| API-enforced feature gates + roles + read-only on expiry | `backend/apps/core/permissions.py`                                              |
+| `/auth/me` with `enabled_features`                       | `backend/apps/core/views.py`                                                    |
+| Dashboard aggregates                                     | `DashboardView` in `apps/core/views.py`                                         |
+| Nav registry filtered by features/role                   | `frontend/app/(app)/layout.tsx`                                                 |
+| Generic CRUD screens                                     | `frontend/components/ResourcePage.tsx`                                          |
 
 ## Known gaps (be honest before launch)
 

@@ -1,5 +1,5 @@
 {
-  "name": "fitssort-web",
+  "name": "fitgenix-web",
   "private": true,
   "scripts": {
     "dev": "next dev",
